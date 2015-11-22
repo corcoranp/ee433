@@ -6,9 +6,12 @@
  *	
  */
 
+import java.util.Vector;
+
 import ee433.creational.abstractfactory.*;
 import ee433.creational.singleton.*;
 import ee433.structural.adapter.*;
+import ee433.structural.composite.*;
 
 
 public class Program {
@@ -19,6 +22,7 @@ public class Program {
 		runAbstractFactoryExample();
 		runSingletonExample();
 		runAdapterExample();
+		runCompositeExample();
 		
 	}
 	
@@ -90,6 +94,50 @@ public class Program {
 		DC5VClient client = new DC5VClient(va);
 		write(client.getPower());
 		write("------------------------------------------------------------");
+	}
+	
+	public static void runCompositeExample(){
+		write("");
+		write("------------------------------------------------------------");
+		write("     Composite Example"); 
+		write("------------------------------------------------------------");
+		write("");
+		
+		Directory root = new Directory();
+		root.name = "root";
+		write("Create root directory: " + root.name);
+		
+		write("Create file1, add to root");
+		File f1 = new File("file1");
+		root.add(f1);
+		write("Create directory 2");
+		Directory dir2 = new Directory();
+		dir2.name = "directory2";
+		write("Create file2, add to directory 2");
+		dir2.add(new File("file2"));
+		root.add(dir2);	
+		write("Recursively walk the root object...");
+		writeFso(root, "root\\");
+	
+		write("------------------------------------------------------------");
+	}
+	
+	public static void writeFso(IFileSystemObject fso, String path){
+        Directory root = (Directory) fso;
+        Vector<IFileSystemObject> list = root.subitems;
+
+        if (list == null) return;
+
+        for ( IFileSystemObject f :  root.subitems) {
+            if ( f instanceof Directory ) {
+            	write(path + f.getFileName() );
+                writeFso(f, path  + f.getFileName()+ "\\");
+                            }
+            else {
+                write(path + f.getFileName() );
+            }
+        }
+	    
 	}
 	
 	public static void write(String msg){
