@@ -7,12 +7,21 @@
  */
 
 import ee433.creational.abstractfactory.*;
+import ee433.creational.singleton.*;
 
 
 public class Program {
 
 	public static void main(String[] args) {
 		write("Peter Corcoran - EE433");
+		
+		runAbstractFactoryExample();
+		runSingletonExample();
+		
+		
+	}
+	
+	public static void runAbstractFactoryExample(){
 		write("");
 		write("------------------------------------------------------------");
 		write("     Abstract Factory Example"); 
@@ -38,6 +47,32 @@ public class Program {
 		write("");
 		write("------------------------------------------------------------");
 		
+	}
+	
+	public static void runSingletonExample(){
+		write("");
+		write("------------------------------------------------------------");
+		write("     Singleton Example"); 
+		write("------------------------------------------------------------");
+		write("");
+		Singleton s1 = Singleton.getInstance();
+		Singleton s2 = Singleton.getInstance();
+		write("Singleton data: " + s1.SingletonOperation(""));
+		write("Modify data for first reference: " + s1.SingletonOperation(" s1 "));
+		write("Modify data for second reference: " + s2.SingletonOperation(" s2 "));
+		
+		write("");
+		write("Singleton Score Example");
+		
+		Score scr1 = Score.getInstance();
+		write("Add point: " + scr1.addPoints(100).toString());
+		Score scr2 = Score.getInstance();
+		write("Add more point: " + scr2.addPoints(100).toString());
+		
+		
+		
+		
+		write("------------------------------------------------------------");
 	}
 	
 	public static void write(String msg){
