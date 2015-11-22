@@ -8,6 +8,7 @@
 
 import ee433.creational.abstractfactory.*;
 import ee433.creational.singleton.*;
+import ee433.structural.adapter.*;
 
 
 public class Program {
@@ -17,7 +18,7 @@ public class Program {
 		
 		runAbstractFactoryExample();
 		runSingletonExample();
-		
+		runAdapterExample();
 		
 	}
 	
@@ -72,6 +73,22 @@ public class Program {
 		
 		
 		
+		write("------------------------------------------------------------");
+	}
+	
+	public static void runAdapterExample(){
+		write("");
+		write("------------------------------------------------------------");
+		write("     Adapter Example"); 
+		write("------------------------------------------------------------");
+		write("");
+		write("Create AC Socket");
+		ACSocket ac = new ACSocket();
+		write("Create 5V adapter ");
+		VoltageAdapter5V va = new VoltageAdapter5V(ac);
+		write("Plug adapter into client");
+		DC5VClient client = new DC5VClient(va);
+		write(client.getPower());
 		write("------------------------------------------------------------");
 	}
 	
