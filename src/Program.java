@@ -8,6 +8,7 @@
 
 import java.util.Vector;
 
+import ee433.behavior.observer.*;
 import ee433.creational.abstractfactory.*;
 import ee433.creational.singleton.*;
 import ee433.structural.adapter.*;
@@ -23,7 +24,7 @@ public class Program {
 		runSingletonExample();
 		runAdapterExample();
 		runCompositeExample();
-		
+		runObserverExample();
 	}
 	
 	public static void runAbstractFactoryExample(){
@@ -138,6 +139,30 @@ public class Program {
             }
         }
 	    
+	}
+
+	public static void runObserverExample(){
+		write("");
+		write("------------------------------------------------------------");
+		write("     Observer Example"); 
+		write("------------------------------------------------------------");
+		write("");
+		
+		Subject sub = new Subject();
+		sub.name = "subject1";
+		
+		Observer watcher = new Observer();
+		watcher.name = "watcher";
+		Observer watcher1 = new Observer();
+		watcher1.name = "watcher1";
+		Observer watcher2 = new Observer();
+		watcher2.name = "watcher2";
+		sub.attach(watcher);
+		sub.attach(watcher1);
+		sub.attach(watcher2);
+		sub.notifyObservers();
+	
+		write("------------------------------------------------------------");
 	}
 	
 	public static void write(String msg){
