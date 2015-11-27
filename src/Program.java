@@ -8,6 +8,7 @@
 
 import java.util.Vector;
 
+import ee433.behavior.command.*;
 import ee433.behavior.observer.*;
 import ee433.creational.abstractfactory.*;
 import ee433.creational.singleton.*;
@@ -25,6 +26,7 @@ public class Program {
 		runAdapterExample();
 		runCompositeExample();
 		runObserverExample();
+		runCommandExample();
 	}
 	
 	public static void runAbstractFactoryExample(){
@@ -164,6 +166,27 @@ public class Program {
 	
 		write("------------------------------------------------------------");
 	}
+	
+	public static void runCommandExample(){
+		write("");
+		write("------------------------------------------------------------");
+		write("     Command Example"); 
+		write("------------------------------------------------------------");
+		write("");
+		
+		write("Create Computer Object");
+		Computer c = new Computer();
+		
+		write("create new switch and concrete command objects");
+		Switch s = new Switch(new ComputerOnCommand(c), new ComputerOffCommand(c));
+		
+		s.PressOn();
+		
+		s.PressOff();
+	
+		write("------------------------------------------------------------");
+	}
+	
 	
 	public static void write(String msg){
 		System.out.println(msg);
