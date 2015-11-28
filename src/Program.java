@@ -77,9 +77,6 @@ public class Program {
 		Score scr2 = Score.getInstance();
 		write("Add more point: " + scr2.addPoints(100).toString());
 		
-		
-		
-		
 		write("------------------------------------------------------------");
 	}
 	
@@ -173,17 +170,12 @@ public class Program {
 		write("     Command Example"); 
 		write("------------------------------------------------------------");
 		write("");
-		
 		write("Create Computer Object");
 		Computer c = new Computer();
-		
 		write("create new switch and concrete command objects");
 		Switch s = new Switch(new ComputerOnCommand(c), new ComputerOffCommand(c));
-		
 		s.PressOn();
-		
 		s.PressOff();
-	
 		write("------------------------------------------------------------");
 	}
 	

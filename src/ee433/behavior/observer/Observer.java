@@ -12,7 +12,5 @@ public class Observer implements IObserver {
 	@Override
 	public void update(ISubject subject, Object arg) {
 		System.out.println(name + " was updated from : " + arg);
-
 	}
-
 }

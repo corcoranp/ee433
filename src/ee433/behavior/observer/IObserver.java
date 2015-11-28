@@ -8,6 +8,5 @@
 package ee433.behavior.observer;
 
 public interface IObserver {
-
 	public void update(ISubject subject, Object arg);
 }

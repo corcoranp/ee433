@@ -29,5 +29,4 @@ public class Subject implements ISubject {
 			o.update(this, name);
 		}
 	}
-
 }

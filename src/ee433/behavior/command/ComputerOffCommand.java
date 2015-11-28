@@ -19,5 +19,4 @@ public class ComputerOffCommand extends Command {
 		//Do other items related to shutdown...
 		computer.turnOff();
 	}
-
 }

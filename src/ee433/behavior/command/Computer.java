@@ -8,7 +8,7 @@
 package ee433.behavior.command;
 
 public class Computer {
-
+	//...
 	public void turnOff(){
 		System.out.println("turning off computer");
 	}
